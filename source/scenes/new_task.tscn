@@ -1,0 +1,217 @@
+[gd_scene load_steps=2 format=3 uid="uid://on2p5mh27gir"]
+
+[ext_resource type="Script" path="res://source/scripts/new_task.gd" id="1_l8fnn"]
+
+[node name="new_task" type="Panel"]
+rect_min_size = Vector2(400, 500)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 520.0
+script = ExtResource( "1_l8fnn" )
+
+[node name="task_margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="new_task_container" type="VBoxContainer" parent="task_margin"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="new_task_title" type="RichTextLabel" parent="task_margin/new_task_container"]
+offset_right = 360.0
+offset_bottom = 28.0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]Add new task[/center]"
+fit_content_height = true
+
+[node name="task_name_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_top = 32.0
+offset_right = 360.0
+offset_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="RichTextLabel" parent="task_margin/new_task_container/task_name_container"]
+rect_min_size = Vector2(0, 30)
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[right]Task name: "
+
+[node name="text" type="TextEdit" parent="task_margin/new_task_container/task_name_container"]
+rect_min_size = Vector2(0, 35)
+offset_left = 182.0
+offset_top = 13.0
+offset_right = 360.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="task_hours_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_top = 98.0
+offset_right = 360.0
+offset_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="RichTextLabel" parent="task_margin/new_task_container/task_hours_container"]
+rect_min_size = Vector2(0, 30)
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[right]Assigned hours: "
+
+[node name="text" type="TextEdit" parent="task_margin/new_task_container/task_hours_container"]
+rect_min_size = Vector2(0, 35)
+offset_left = 182.0
+offset_top = 13.0
+offset_right = 360.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="task_date_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_top = 164.0
+offset_right = 360.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="RichTextLabel" parent="task_margin/new_task_container/task_date_container"]
+rect_min_size = Vector2(0, 30)
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[right]Due date: "
+
+[node name="text" type="TextEdit" parent="task_margin/new_task_container/task_date_container"]
+rect_min_size = Vector2(0, 35)
+offset_left = 182.0
+offset_top = 13.0
+offset_right = 360.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "dd/mm/yyyy"
+
+[node name="task_customer_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_top = 230.0
+offset_right = 360.0
+offset_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="RichTextLabel" parent="task_margin/new_task_container/task_customer_container"]
+rect_min_size = Vector2(0, 30)
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[right]Customer name: "
+
+[node name="text" type="TextEdit" parent="task_margin/new_task_container/task_customer_container"]
+rect_min_size = Vector2(0, 35)
+offset_left = 182.0
+offset_top = 13.0
+offset_right = 360.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="task_manager_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_top = 296.0
+offset_right = 360.0
+offset_bottom = 358.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="RichTextLabel" parent="task_margin/new_task_container/task_manager_container"]
+rect_min_size = Vector2(0, 30)
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[right]Manager: "
+
+[node name="text" type="TextEdit" parent="task_margin/new_task_container/task_manager_container"]
+rect_min_size = Vector2(0, 35)
+offset_left = 182.0
+offset_top = 13.0
+offset_right = 360.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="task_category_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_top = 362.0
+offset_right = 360.0
+offset_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="label" type="RichTextLabel" parent="task_margin/new_task_container/task_category_container"]
+rect_min_size = Vector2(0, 30)
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[right]Category: "
+
+[node name="text" type="TextEdit" parent="task_margin/new_task_container/task_category_container"]
+rect_min_size = Vector2(0, 35)
+offset_left = 182.0
+offset_top = 14.0
+offset_right = 360.0
+offset_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Self training"
+
+[node name="button_container" type="HBoxContainer" parent="task_margin/new_task_container"]
+offset_left = 108.0
+offset_top = 429.0
+offset_right = 252.0
+offset_bottom = 460.0
+size_flags_horizontal = 4
+
+[node name="add_button" type="Button" parent="task_margin/new_task_container/button_container"]
+rect_min_size = Vector2(60, 0)
+offset_right = 60.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+text = "Add"
+
+[node name="cancel_button" type="Button" parent="task_margin/new_task_container/button_container"]
+rect_min_size = Vector2(80, 0)
+offset_left = 64.0
+offset_right = 144.0
+offset_bottom = 31.0
+text = "Cancel"
+
+[connection signal="pressed" from="task_margin/new_task_container/button_container/add_button" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="task_margin/new_task_container/button_container/cancel_button" to="." method="_on_cancel_button_pressed"]

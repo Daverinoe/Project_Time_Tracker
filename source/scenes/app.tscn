@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdgmhcoitygo"]
+
+[ext_resource type="Script" path="res://source/scripts/app.gd" id="1_w7tmo"]
+[ext_resource type="Script" path="res://source/scripts/project_list.gd" id="2_efsqf"]
+[ext_resource type="PackedScene" uid="uid://bgtxxgptayu6o" path="res://source/scenes/days.tscn" id="3_bwo84"]
+
+[sub_resource type="Theme" id="Theme_u1k6r"]
+
+[node name="app" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1_w7tmo" )
+
+[node name="app_container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 0
+
+[node name="menu_bar" type="Panel" parent="app_container"]
+rect_min_size = Vector2(0, 35)
+offset_right = 1280.0
+offset_bottom = 35.0
+theme = SubResource( "Theme_u1k6r" )
+
+[node name="menu_container" type="HBoxContainer" parent="app_container/menu_bar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 6
+
+[node name="file_button" type="MenuButton" parent="app_container/menu_bar/menu_container"]
+rect_min_size = Vector2(80, 0)
+offset_right = 80.0
+offset_bottom = 35.0
+text = "File"
+
+[node name="export_button" type="MenuButton" parent="app_container/menu_bar/menu_container"]
+rect_min_size = Vector2(80, 0)
+offset_left = 86.0
+offset_right = 166.0
+offset_bottom = 35.0
+text = "Export"
+
+[node name="view_button" type="MenuButton" parent="app_container/menu_bar/menu_container"]
+rect_min_size = Vector2(80, 0)
+offset_left = 172.0
+offset_right = 252.0
+offset_bottom = 35.0
+text = "View"
+item_count = 2
+popup/item_0/text = "Day View"
+popup/item_0/id = 0
+popup/item_1/text = "Week view"
+popup/item_1/id = 1
+
+[node name="main_body" type="Panel" parent="app_container"]
+offset_top = 35.0
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_vertical = 3
+
+[node name="body_container" type="HBoxContainer" parent="app_container/main_body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="project_list" type="Panel" parent="app_container/main_body/body_container"]
+rect_min_size = Vector2(300, 565)
+offset_right = 300.0
+offset_bottom = 685.0
+
+[node name="all_projects" type="VBoxContainer" parent="app_container/main_body/body_container/project_list"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="project_scroll" type="ScrollContainer" parent="app_container/main_body/body_container/project_list/all_projects"]
+offset_right = 300.0
+offset_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="projects" type="VBoxContainer" parent="app_container/main_body/body_container/project_list/all_projects/project_scroll"]
+offset_right = 300.0
+offset_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( "2_efsqf" )
+
+[node name="add_project" type="Button" parent="app_container/main_body/body_container/project_list/all_projects"]
+rect_min_size = Vector2(0, 60)
+offset_top = 625.0
+offset_right = 300.0
+offset_bottom = 685.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Add project"
+
+[node name="calendar" type="Panel" parent="app_container/main_body/body_container"]
+offset_left = 304.0
+offset_right = 1280.0
+offset_bottom = 685.0
+size_flags_horizontal = 3
+
+[node name="day_container" type="HBoxContainer" parent="app_container/main_body/body_container/calendar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="previous_button" type="Button" parent="app_container/main_body/body_container/calendar/day_container"]
+offset_right = 18.0
+offset_bottom = 685.0
+text = "<"
+
+[node name="days" parent="app_container/main_body/body_container/calendar/day_container" instance=ExtResource( "3_bwo84" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 22.0
+offset_right = 954.0
+offset_bottom = 685.0
+
+[node name="next_button" type="Button" parent="app_container/main_body/body_container/calendar/day_container"]
+offset_left = 958.0
+offset_right = 976.0
+offset_bottom = 685.0
+text = ">"
+
+[connection signal="pressed" from="app_container/main_body/body_container/project_list/all_projects/add_project" to="." method="_on_add_project_pressed"]

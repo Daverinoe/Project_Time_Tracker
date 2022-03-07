@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cemnea5eu8h3f"]
+
+[ext_resource type="Texture2D" uid="uid://co7878t8uvf3b" path="res://source/assets/buttons/normal.png" id="1_kx2lk"]
+[ext_resource type="Texture2D" uid="uid://b04i7ht8s5iea" path="res://source/assets/buttons/click.png" id="2_htoef"]
+[ext_resource type="Texture2D" uid="uid://c6y3gi2nhjy7d" path="res://source/assets/buttons/hover.png" id="3_l6ova"]
+[ext_resource type="Script" path="res://source/scripts/half_hour.gd" id="4_o2rav"]
+
+[node name="half_hour" type="TextureButton"]
+modulate = Color(1, 1, 1, 0.294118)
+offset_right = 1024.0
+offset_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( "1_kx2lk" )
+texture_pressed = ExtResource( "2_htoef" )
+texture_hover = ExtResource( "3_l6ova" )
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource( "4_o2rav" )
+
+[node name="half_hour_text" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+bbcode_enabled = true
+__meta__ = {
+"_edit_layout_mode": 1,
+"_edit_use_custom_anchors": false
+}

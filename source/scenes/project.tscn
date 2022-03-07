@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b4ivo5xkp0xce"]
+
+[node name="project" type="RichTextLabel"]
+offset_right = 300.0
+offset_bottom = 69.0
+mouse_filter = 2
+text = "%PROJECT NAME
+Hours left: %H
+Date due: %DATE"
+fit_content_height = true
+
+[node name="@@183681" type="VScrollBar" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 69.0
+step = 1.0
+page = 69.0
+
+[node name="Button" type="Button" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
