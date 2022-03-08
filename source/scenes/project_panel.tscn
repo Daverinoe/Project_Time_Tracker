@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvnniayq2p8nd"]
+
+[ext_resource type="Script" path="res://source/scripts/project_panel.gd" id="1_7owyq"]
+[ext_resource type="StyleBox" uid="uid://cxh6u88iwmbbb" path="res://source/assets/styles/panel_no_transparent.tres" id="1_7w8wd"]
+[ext_resource type="Texture2D" uid="uid://5t234ar1or8j" path="res://source/assets/buttons/play.png" id="3_57y1r"]
+[ext_resource type="Texture2D" uid="uid://c0rb71wacmif3" path="res://source/assets/buttons/stop.png" id="4_j02ee"]
+
+[node name="project_panel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 95.0
+offset_right = -513.0
+offset_bottom = -380.0
+theme_override_styles/panel = ExtResource( "1_7w8wd" )
+script = ExtResource( "1_7owyq" )
+
+[node name="margins" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+__meta__ = {
+"_edit_layout_mode": 1,
+"_edit_use_custom_anchors": false
+}
+
+[node name="cancel_button" type="VBoxContainer" parent="margins"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 723.0
+offset_bottom = 245.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="panels" type="HBoxContainer" parent="margins/cancel_button"]
+offset_right = 713.0
+offset_bottom = 200.0
+size_flags_vertical = 0
+
+[node name="details" type="VBoxContainer" parent="margins/cancel_button/panels"]
+offset_right = 472.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="name" type="RichTextLabel" parent="margins/cancel_button/panels/details"]
+offset_right = 472.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="hours_assigned" type="RichTextLabel" parent="margins/cancel_button/panels/details"]
+offset_top = 68.0
+offset_right = 472.0
+offset_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="hours_left" type="RichTextLabel" parent="margins/cancel_button/panels/details"]
+offset_top = 136.0
+offset_right = 472.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="start_button" type="TextureButton" parent="margins/cancel_button/panels"]
+offset_left = 476.0
+offset_right = 713.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource( "3_57y1r" )
+stretch_mode = 0
+
+[node name="stop_button" type="TextureButton" parent="margins/cancel_button/panels"]
+visible = false
+offset_left = 513.0
+offset_right = 713.0
+offset_bottom = 225.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+toggle_mode = true
+texture_normal = ExtResource( "4_j02ee" )
+stretch_mode = 0
+
+[node name="back_button" type="Button" parent="margins/cancel_button"]
+rect_min_size = Vector2(60, 0)
+offset_left = 326.0
+offset_top = 204.0
+offset_right = 386.0
+offset_bottom = 235.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back"
+
+[connection signal="pressed" from="margins/cancel_button/panels/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="margins/cancel_button/panels/stop_button" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="margins/cancel_button/back_button" to="." method="_on_back_button_pressed"]

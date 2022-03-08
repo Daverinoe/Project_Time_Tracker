@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://on2p5mh27gir"]
+[gd_scene load_steps=3 format=3 uid="uid://on2p5mh27gir"]
 
+[ext_resource type="StyleBox" uid="uid://cxh6u88iwmbbb" path="res://source/assets/styles/panel_no_transparent.tres" id="1_ewe1n"]
 [ext_resource type="Script" path="res://source/scripts/new_task.gd" id="1_l8fnn"]
 
 [node name="new_task" type="Panel"]
@@ -8,6 +9,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 320.0
 offset_bottom = 520.0
+theme_override_styles/panel = ExtResource( "1_ewe1n" )
 script = ExtResource( "1_l8fnn" )
 
 [node name="task_margin" type="MarginContainer" parent="."]

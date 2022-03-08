@@ -11,7 +11,6 @@ var time_scene = preload("res://source/scenes/times.tscn")
 func _ready():
 	Event.connect("set_view_state", __set_view_state)
 
-
 func __set_view_state(state) -> void:
 	var year = current_date.year
 	var month = current_date.month

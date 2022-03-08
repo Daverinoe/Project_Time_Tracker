@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b4ivo5xkp0xce"]
+[gd_scene load_steps=2 format=3 uid="uid://b4ivo5xkp0xce"]
+
+[ext_resource type="Script" path="res://source/scripts/project_button.gd" id="1_8wcmi"]
 
 [node name="project" type="RichTextLabel"]
 offset_right = 300.0
@@ -8,6 +10,7 @@ text = "%PROJECT NAME
 Hours left: %H
 Date due: %DATE"
 fit_content_height = true
+script = ExtResource( "1_8wcmi" )
 
 [node name="@@183681" type="VScrollBar" parent="."]
 visible = false
@@ -17,7 +20,9 @@ max_value = 69.0
 step = 1.0
 page = 69.0
 
-[node name="Button" type="Button" parent="."]
+[node name="project_button" type="Button" parent="."]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[connection signal="pressed" from="project_button" to="." method="_on_button_pressed"]

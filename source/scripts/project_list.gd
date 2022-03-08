@@ -15,10 +15,6 @@ func __load_task_list(task_name : String = "") -> void:
 	var data = ProjectManager.data
 	for key in data:
 		var project_data = data.get(key)
-		var due_date = project_data.get("due_date")
-		var date_string = ("%s/%s/%s" 
-						% [due_date.get("day"), due_date.get("month"), due_date.get("year")])
 		var project = project_scene.instantiate()
-		project.text = ("%s\nHours left: %s\nDate due: %s" 
-						% [key, project_data.get("assigned_hours"), date_string])
+		project.task_name = key
 		self.call_deferred("add_child", project)
