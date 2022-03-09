@@ -4,7 +4,9 @@
 # - [x] Day scene
 # - [x] Week scene
 # - [ ] Month scene
-# - [ ] Project manager
-# - [ ] Clickable hours -> Add time to project?
+# - [x] Project manager
+# - [x] Clickable hours -> Add time to project?
 # - [x] Serialisation
-# - [ ] Deserialisation
+# - [x] Deserialisation
+# - [ ] Export options
+# - [ ] Have projects linked to calendar

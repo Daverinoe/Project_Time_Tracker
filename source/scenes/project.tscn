@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://source/scripts/project_button.gd" id="1_8wcmi"]
 
 [node name="project" type="RichTextLabel"]
+modulate = Color(1, 0, 0.0784314, 1)
 offset_right = 300.0
 offset_bottom = 69.0
 mouse_filter = 2

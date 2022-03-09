@@ -8,3 +8,4 @@ signal set_view_state(state : String)
 signal project_button(task_name : String)
 
 # Signals emitted by app processes
+signal update_values

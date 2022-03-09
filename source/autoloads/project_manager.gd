@@ -13,7 +13,7 @@ func _ready():
 func add_data(task_name : String, hours : float, due_date : Dictionary = {},
 customer : String = "", manager : String = "", category : String = "Training") -> void:
 	var new_data = {"assigned_hours": hours,
-					"hours_worked": 0,
+					"hours_worked": 0.0,
 					"due_date": due_date,
 					"dates_worked": {},
 					"customer": customer,
@@ -37,3 +37,29 @@ func save_data() -> void:
 	fileHandle.open(filePath, File.WRITE)
 	fileHandle.store_line(jsonHandle.stringify(data))
 	fileHandle.close()
+
+func update_task(task_name : String, hours_worked = null, completed = null, dates_worked = null,
+due_date = null, assigned_hours = null, customer = null, manager = null, category = null) -> void:
+	if assigned_hours != null:
+		data[task_name]["assigned_hours"] = assigned_hours
+	if hours_worked != null:
+		data[task_name]["hours_worked"] = hours_worked
+	if dates_worked != null:
+		data[task_name]["dates_worked"] = dates_worked
+	if completed != null:
+		data[task_name]["completed"] = completed
+	if due_date != null:
+		data[task_name]["due_date"] = due_date
+	if customer != null:
+		data[task_name]["customer"] = customer
+	if manager != null:
+		data[task_name]["manager"] = manager
+	if category != null:
+		data[task_name]["category"] = category
+	save_data()
+	Event.emit_signal("update_values")
+
+func delete_task(task_name : String) -> void:
+	if data.has(task_name):
+		data.erase(task_name)
+		Event.emit_signal("update_values")
